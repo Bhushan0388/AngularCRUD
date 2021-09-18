@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstname": "Bob",
+      "lastname": "Samule",
+      "email": "bob@yahoo.com",
+      "mobile": "2523622102",
+      "salary": "1020"
+    },
+    {
+      "id": 3,
+      "firstname": "Test1",
+      "lastname": "testing",
+      "email": "mmmm",
+      "mobile": "666666",
+      "salary": "2000"
+    },
+    {
+      "id": 4,
+      "firstname": "ss",
+      "lastname": "ss",
+      "email": "ss",
+      "mobile": "ss",
+      "salary": "sss"
+    },
+    {
+      "id": 5,
+      "firstname": "Testinf 124",
+      "lastname": "3333",
+      "email": "33333",
+      "mobile": "3333",
+      "salary": "3333"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
