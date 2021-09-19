@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { EmployeeModal } from './employee-dashboard-modal-data';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'employee-dashboard',
@@ -16,7 +17,7 @@ export class EmployeeDashboardComponent implements OnInit {
   showAdd!:boolean;
   showUpdate!:boolean;
 
-  constructor(private frombuilder: FormBuilder, private api: ApiService) { }
+  constructor(private frombuilder: FormBuilder, private api: ApiService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.formvalue = this.frombuilder.group({
@@ -38,7 +39,8 @@ export class EmployeeDashboardComponent implements OnInit {
 
     this.api.postEmployee(this.employeemodalObj).subscribe(res => {
       console.log(res);
-      alert("addes sucessfully");
+      // alert("addes sucessfully");
+      this.toastr.success('Employee Added Sucessfuly');
       this.formvalue.reset();
 
       let ref = document.getElementById("closemodal");
@@ -57,7 +59,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
   deleteEmployeeData(emp: any) {
     this.api.deleteEmployee(emp.id).subscribe(res => {
-      alert("record deleted");
+      this.toastr.success('Employee Deleted Sucessfuly');
       this.EmployeeList = this.getEmployeeData();
     })
   }
@@ -85,7 +87,8 @@ export class EmployeeDashboardComponent implements OnInit {
     this.employeemodalObj.salary = this.formvalue.value.salary;
 
     this.api.updateEmployee(this.employeemodalObj,this.employeemodalObj.id).subscribe(res =>{
-      alert("record Udpated");
+      
+      this.toastr.success('Employee Details Updated Sucessfuly');
       let ref = document.getElementById("closemodal");
       ref?.click();
       this.EmployeeList = this.getEmployeeData();
